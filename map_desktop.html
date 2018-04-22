@@ -185,10 +185,12 @@
 		  zoomControl: false
 		});
 		
+		/*
 		map.on('click', function() {
 			$("#infopanel-left").fadeOut("slow");
 			$("#infopanel-right").fadeOut("slow");
 		});
+		*/
 		
 		new L.Control.Zoom({ position: 'topright' }).addTo(map);
 
@@ -283,7 +285,7 @@
 				$("#title").css('color', trailColors[e.layer.feature.properties.name]);
 				$("#title").css("font-family", font);
 				$("#trail-info").html(e.layer.feature.properties.description);
-				$("#infopanel-left").css("display", "block");
+				$("#infopanel-left").fadeIn("slow");
 				$(".IT-Click").on('click', function() {
 					$(".EN").css("display", "none");
 					$(".IT").css("display", "block");

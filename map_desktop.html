@@ -134,6 +134,9 @@
 		#tracks {
 			font-size: 1.75em;
 		}
+		#trail-info {
+			display: none;
+		}
 	}
    
    .IT, .EN {
@@ -280,7 +283,7 @@
 				$("#title").css('color', trailColors[e.layer.feature.properties.name]);
 				$("#title").css("font-family", font);
 				$("#trail-info").html(e.layer.feature.properties.description);
-				$("#infopanel-left").fadeIn("slow");
+				$("#infopanel-left").css("display", "block");
 				$(".IT-Click").on('click', function() {
 					$(".EN").css("display", "none");
 					$(".IT").css("display", "block");

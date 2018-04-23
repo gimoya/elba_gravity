@@ -186,7 +186,6 @@
 		});
 		
 		map.on('click', function() {
-			L.DomEvent.stopPropagation(e);
 			$("#infopanel-left").fadeOut("slow");
 			$("#infopanel-right").fadeOut("slow");
 		});
@@ -281,20 +280,25 @@
 		// now the KML tracks with events and all that..
 		
 		function trailClick(e, font) {
-				$("#title").html(e.layer.feature.properties.name);
-				$("#title").css('color', trailColors[e.layer.feature.properties.name]);
-				$("#title").css("font-family", font);
-				$("#trail-info").html(e.layer.feature.properties.description);
-				$("#infopanel-left").fadeIn("slow");
-				$(".IT-Click").on('click', function() {
-					$(".EN").css("display", "none");
-					$(".IT").css("display", "block");
-				});
-				$(".EN-Click").on('click', function() {
-					$(".IT").css("display", "none");
-					$(".EN").css("display", "block");
-				});	
-				map.fitBounds(e.layer.getBounds());				
+		
+			// prevent event to propagate through to parent elements, without this map click would fire 	
+			// and event listener for map click would call function that hides the panel 
+			L.DomEvent.stopPropagation(e); 
+			
+			$("#title").html(e.layer.feature.properties.name);
+			$("#title").css('color', trailColors[e.layer.feature.properties.name]);
+			$("#title").css("font-family", font);
+			$("#trail-info").html(e.layer.feature.properties.description);
+			$("#infopanel-left").fadeIn("slow");
+			$(".IT-Click").on('click', function() {
+				$(".EN").css("display", "none");
+				$(".IT").css("display", "block");
+			});
+			$(".EN-Click").on('click', function() {
+				$(".IT").css("display", "none");
+				$(".EN").css("display", "block");
+			});	
+			map.fitBounds(e.layer.getBounds());				
 		}
 
 		var CavoKML = omnivore.kml('KML/Cavo.kml')

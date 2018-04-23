@@ -343,9 +343,6 @@
 				$("#gpx").prop('href', 'KML/Vignola.gpx');
 				$("#kml").prop('href', 'KML/Vignola.kml');
 			});
-
-		map.addLayer(groupKML_outline);
-		map.addLayer(groupKML);
 		
 		/*
 		For highlighting features see:
@@ -393,6 +390,9 @@
 			VignolaKML
 		]);
 
+		map.addLayer(groupKML_outline);
+		map.addLayer(groupKML);
+		
 		// used icons for markers:
 		L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
 

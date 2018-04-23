@@ -255,7 +255,41 @@
 			$("#infopanel").fadeIn("slow");			
 			map.fitBounds(e.layer.getBounds());
 		}
+
+		// use one version of the kml layers for outline styling	
+		var CavoKML_outline = omnivore.kml('KML/Cavo.kml');		
+		var SerraKML_outline = omnivore.kml('KML/Serra.kml');
+		var BucaDelBanditoKML_outline = omnivore.kml('KML/BucaDelBandito.kml');
+		var MiniereKML_outline = omnivore.kml('KML/Miniere.kml');
+		var MezzaStregaKML_outline = omnivore.kml('KML/MezzaStrega.kml');
+		var StregaKML_outline = omnivore.kml('KML/Strega.kml');
+		var ScaletteKML_outline = omnivore.kml('KML/Scalette.kml');
+		var VignolaKML_outline = omnivore.kml('KML/Vignola.kml');
 		
+		var groupKML_outline = new L.LayerGroup([
+			SerraKML_outline,
+			MiniereKML_outline,
+			BucaDelBanditoKML_outline,	
+			MezzaStregaKML_outline,
+			ScaletteKML_outline,
+			StregaKML_outline,
+			VignolaKML_outline,
+			CavoKML_outline
+		]);
+		
+		groupKML_outline.eachLayer(function (layer) {	
+			layer.on('ready', function() { 			
+				layer.setStyle({
+					'color': 'white',
+					'weight': 8					
+				});
+			});	
+		});
+		
+		map.addLayer(groupKML_outline);	
+
+		// this version of lines will be put on top of the white base version lines
+		// resulting in a coloured line with white outline
 		var CavoKML = omnivore.kml('KML/Cavo.kml')
 			.on('click', function(e) {
 				trailClick(e, "Bangers");

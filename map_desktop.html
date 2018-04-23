@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
 	
 	<!-- GOOGLE FONTS -->	
-	<link href='//fonts.googleapis.com/css?family=Bangers|Fugaz+One|Hanalei+Fill|Ranga|Ultra|Exo:Bold|Fredoka+One|Sigmar+One|Bungee+Inline|Creepster|Ewert|Fruktur|Monoton|Rubik:900' rel='stylesheet' type='text/css'>	
+	<link href='//fonts.googleapis.com/css?family=Bangers|Fugaz+One|Hanalei|Ranga|Ultra|Exo:Bold|Fredoka+One|Sigmar+One|Bungee+Inline|Creepster|Ewert|Fruktur|Monoton|Rubik:900' rel='stylesheet' type='text/css'>	
 	<!-- GOOGLE FONTS -->
 
 	
@@ -275,10 +275,7 @@
 			});	
 		});
 		
-		map.addLayer(groupKML_outline);		
-		
-		// now the KML tracks with events and all that..
-		
+		// now the KML tracks with events and all that..	
 		function trailClick(e, font) {
 		
 			// prevent event to propagate through to parent elements, without this map click would fire 	
@@ -410,6 +407,9 @@
 			CavoKML
 		]);	
 		
+		map.addLayer(groupKML_outline);				
+		map.addLayer(groupKML);	
+		
 		// used icons for markers:
 		L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
 
@@ -534,9 +534,7 @@
 				unsetHighlight(layer);
 				$("#popup").fadeOut("slower");
 			});	
-		});
-		
-		map.addLayer(groupKML);	
+		});´
 		
 		/* get width of info-panel (25 or 50% of screen) and 
 		   use this value for height, because iframe will be quadratic and fill 100%

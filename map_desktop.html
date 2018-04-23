@@ -185,12 +185,12 @@
 		  zoomControl: false
 		});
 		
-		/*
 		map.on('click', function() {
+			L.DomEvent.stopPropagation(e);
 			$("#infopanel-left").fadeOut("slow");
 			$("#infopanel-right").fadeOut("slow");
 		});
-		*/
+		
 		
 		new L.Control.Zoom({ position: 'topright' }).addTo(map);
 

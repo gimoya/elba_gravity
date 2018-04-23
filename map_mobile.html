@@ -285,8 +285,6 @@
 				});
 			});	
 		});
-		
-		map.addLayer(groupKML_outline);	
 
 		// this version of lines will be put on top of the white base version lines
 		// resulting in a coloured line with white outline
@@ -490,7 +488,7 @@
 			});			
 		});
 
-		map.addLayer(groupKML);
+		map.addLayer(groupKML_outline, groupKML);
 
 	</script>
 </body>	

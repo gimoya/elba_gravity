@@ -460,6 +460,11 @@
 				var name = layer.getLayers(0)[0].feature.properties.name;
 				var latlngs = layer.getLayers(0)[0]._latlngs;
 				
+				layer.setStyle({
+					'weight': 5,
+					'color': trailColors[name]
+				});				
+				
 				new L.circleMarker(latlngs[0], {
 						color: 'darkslategrey',
 						fillColor: 'lightgreen',
@@ -483,11 +488,6 @@
 						direction: 'right'
 					})
 					.addTo(map);
-					
-				layer.setStyle({
-					'weight': 5,
-					'color': trailColors[name]
-				});
 			});			
 		});
 	</script>

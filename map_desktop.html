@@ -462,13 +462,33 @@
 			marker.addTo(map);
 		}
 		
-		// Iterate over groupKML and make end and start markers, then attach event listeners..	
+		// Iterate over groupKML, set Trail style and make end and start markers, then attach event listeners..	
 		groupKML.eachLayer(function (layer) {	
 
 			layer.on('ready', function() { 
 			
 				var latlngs = layer.getLayers(0)[0]._latlngs;
 				var name = layer.getLayers(0)[0].feature.properties.name;
+				
+				// color each trail accordingly
+				layer.setStyle({
+					'opacity': 0.75,
+					'weight': 5,
+					'color': trailColors[name]
+				});
+				
+				// Mouseover handler for trails
+				layer.on('mouseover', function (e) {
+					// Set highlight
+					setHighlight(layer);
+				});
+
+				// Mouseout handler for trails
+				layer.on('mouseout', function (e) {
+					 // Unset highlight
+					unsetHighlight(layer);
+					$("#popup").fadeOut("slower");
+				});					
 				
 				// Add start point for each layer
 				new L.circleMarker(latlngs[0], {
@@ -514,28 +534,8 @@
 					.on('mouseout', function (e) {
 						$("#popup").fadeOut("slower");
 					})
-					.addTo(map);
-				
-				// color each trail accordingly
-				layer.setStyle({
-					'opacity': 0.75,
-					'weight': 5,
-					'color': trailColors[name]
-				});
+					.addTo(map);	
 			});			
-
-			// Mouseover handler for trails
-			layer.on('mouseover', function (e) {
-				// Set highlight
-				setHighlight(layer);
-			});
-
-			// Mouseout handler for trails
-			layer.on('mouseout', function (e) {
-				 // Unset highlight
-				unsetHighlight(layer);
-				$("#popup").fadeOut("slower");
-			});	
 		});
 		
 		/* get width of info-panel (25 or 50% of screen) and 

@@ -395,27 +395,12 @@
 		
 		// used icons for markers:
 		L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
-
-		var bikeRentIcon = L.AwesomeMarkers.icon({
-			    icon: 'fa-bicycle',
-			    markerColor: 'blue',
-			    iconColor: 'yellow'
-			  });			  
-
+		  
 		var bikeLoadingIcon = L.AwesomeMarkers.icon({
 			    icon: 'fa-truck',
 			    markerColor: 'purple',
 			    iconColor: 'yellow'
 			  })			
-
-		function openShopURL(e) {
-			$("#poi-info").html('Visit <a href="http://www.elbagravitybikerent.it/" target="_blank";>Elba Gravity Bike Shop/Rent</a>');
-			$("#poi-info").css('display', 'block');
-			// this will hide #title and #tracks in #trail-container, which otherwise would always stick above #poi-info	
-			$("#trail-container").css('display','none');
-			$("#infopanel").fadeIn("slow");
-			// console.log(latLngToLayerPoint(e.latlng));			
-		}
 
 		function showTelDario(e) {
 			$("#poi-info").html('Shuttle Call <a href="tel:+39 320 264 9391">+39 320 264 9391</a>');
@@ -436,10 +421,7 @@
 		];
 		
 		var loadingPtsLabels = ['Bagnaia', 'Magazzini', 'Cavo', 'SP 33 - Vignola Exit', 'Porto Azzurro', 'Rio Marina'];
-		
-		new L.marker([42.81376, 10.3989717], {icon: bikeRentIcon})
-			.on('click', openShopURL)
-			.addTo(map);	
+
 		
 		for (i = 0; i < bikeLoadingPts.length; i++) { 
 			new L.marker(bikeLoadingPts[i], {icon: bikeLoadingIcon})
@@ -453,6 +435,28 @@
 				.addTo(map);
 		}
 		
+
+		// Bike Rent marker and functionally disabled, October 2018..
+		/* 		
+		var bikeRentIcon = L.AwesomeMarkers.icon({
+			    icon: 'fa-bicycle',
+			    markerColor: 'blue',
+			    iconColor: 'yellow'
+			  });	
+			  
+		function openShopURL(e) {
+			$("#poi-info").html('Visit <a href="http://www.elbagravitybikerent.it/" target="_blank";>Elba Gravity Bike Shop/Rent</a>');
+			$("#poi-info").css('display', 'block');
+			// this will hide #title and #tracks in #trail-container, which otherwise would always stick above #poi-info	
+			$("#trail-container").css('display','none');
+			$("#infopanel").fadeIn("slow");
+			// console.log(latLngToLayerPoint(e.latlng));			
+		}
+
+		new L.marker([42.81376, 10.3989717], {icon: bikeRentIcon})
+			.on('click', openShopURL)
+			.addTo(map);
+		*/		
 		// Iterate over groupKML and make end and start markers, then attach event listeners..	
 		groupKML.eachLayer(function (layer) {	
 

@@ -130,17 +130,17 @@
 	  display: none;
 	}
 	
-	a, .IT-Click, .EN-Click {
+	a, .Text-Click {
 	   cursor: hand; 
 	   transition: color .4s;
 	}
 	
-	a, .IT-Click:link, .IT-Click:visited { 
+	a, .Text-Click, .Text-Click:visited { 
 		color: #ccba38; 
 	}
 
-	a.hover, .IT-Click:hover, .EN-Click:hover  { color: #7FDBFF; }
-	a.:active, .IT-Click:acative, .EN-Click:active   {
+	a:hover, .Text-Click:hover  { color: #7FDBFF; }
+	a:active, .Text-Click:active, .Text-Click:active   {
 		transition: color .3s;
 		color: #007BE6;
 	}	
@@ -167,7 +167,6 @@
 	
 	#photo-slider-click {
 		cursor: hand; 
-	    color: #f9ff00;
 	}
 	</style>
 </head> 		
@@ -267,11 +266,12 @@
 				.css('color', trailColors[e.layer.feature.properties.name])
 				.html(e.layer.feature.properties.name);
 			$("#trail-info").html(e.layer.feature.properties.description + '<a href="https://instagram.com/explore/tags/ElbaGravity_' + e.layer.feature.properties.name.replace(/\s+/g, '') + '" target="_blank">Check on Instagram</a>');
-			$(".IT-Click").on('click', function() {
+			
+			$("#IT-Click").on('click', function() {
 				$(".EN").css("display", "none");
 				$(".IT").css("display", "block");
 			});	
-			$(".EN-Click").on('click', function() {
+			$("#EN-Click").on('click', function() {
 				$(".IT").css("display", "none");
 				$(".EN").css("display", "block");
 			});				

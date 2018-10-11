@@ -198,7 +198,7 @@
 			<div class="info-row" id="title"></div>
 			<div class="info-row" id="trail-info"></div>
 			<div class="info-row">
-				<div class="Text-Click" id="photo-gallery-click" onclick='$("#gallery").css("display", "block")'>Gallery</div>
+				<div class="Text-Click" id="photo-gallery-click" onclick='$("#gallery").css("display", "block")'></div>
 			</div>
 			<div class="info-row" id="tracks"><a id="gpx" href="" download>GPX</a> | <a id="kml" href="" download>KML</a></div>		
 		</div>
@@ -288,7 +288,7 @@
 				.html(e.layer.feature.properties.name)
 			$("#trail-info").html(e.layer.feature.properties.description);
 			// add instagram link to gallery btn
-			$("#photo-gallery-click").html($("#photo-gallery-click").html + '<a href="https://instagram.com/explore/tags/ElbaGravity_' + e.layer.feature.properties.name.replace(/\s+/g, '') + '" target="_blank">| Instagram</a>');
+			$("#photo-gallery-click").html('Gallery | ' + '<a href="https://instagram.com/explore/tags/ElbaGravity_' + e.layer.feature.properties.name.replace(/\s+/g, '') + '" target="_blank">Instagram</a>');
 			// These elements are coded into the KMLs!
 			$("#IT-Click").on('click', function() {
 				$(".EN").css("display", "none");

@@ -166,19 +166,25 @@
 	/*
 	Phot Gallery Stuff
 	*/
+	#gallery {
+		display: none;
+	}
 	
 	</style>
 </head> 		
 	
 <body>
 	<div id="photo-gallery"></div>
+	<div id="gallery">
+		<iframe src="//lightwidget.com/widgets/7cfa1a27909850c1a5eb5d022fef31c9.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+	</div>
 	<div id="infopanel-bottom">
 		<div id="close" title="Click to close" onclick="$(this).parent().fadeOut('slow');">X</div>
 		<div id="trail-container">
 			<div class="info-row" id="title"></div>
 			<div class="info-row" id="trail-info"></div>
 			<div class="info-row">
-				<div class="Text-Click" id="photo-gallery-click" onclick="alert('Poh')">Gallery</div>
+				<div class="Text-Click" id="photo-gallery-click" onclick='$("#gallery").css("display", "block")'>Gallery</div>
 			</div>
 			<div class="info-row" id="tracks"><a id="gpx" href="" download>GPX</a> | <a id="kml" href="" download>KML</a></div>		
 		</div>

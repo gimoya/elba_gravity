@@ -150,7 +150,7 @@
 	/* 
 	CSS for inline close element which will hide it's parent div if clicked..
 	*/
-	.close {
+	.close-btn {
 		color: white;
 		font-family: Corbel;
 		float: right;
@@ -159,7 +159,7 @@
 		background: #ccc;
 		cursor: hand;
 	}
-	.close:hover {
+	.close-btn:hover {
 		background: #aaa;
 	}
 	
@@ -168,6 +168,7 @@
 	*/
 	#gallery {
 		display: none;
+		z-index:9999;
 		max-width: 300px;
 		width: 80%;
 		height: 200px;
@@ -186,7 +187,7 @@
 <body>
 	<div id="photo-gallery"></div>
 	<div id="gallery">
-		<div class="close" title="Click to close" onclick="$(this).parent().fadeOut('slow');">X</div>
+		<div class="close-btn" title="Click to close" onclick="$(this).parent().fadeOut('slow');">X</div>
 		<iframe src="//lightwidget.com/widgets/7cfa1a27909850c1a5eb5d022fef31c9.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
 	</div>
 	<div id="infopanel-bottom">

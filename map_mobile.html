@@ -287,7 +287,7 @@
 				.css('color', trailColors[e.layer.feature.properties.name])
 				.html(e.layer.feature.properties.name);
 			// add instagram link to gallery btn
-			$("#gallery").html(e.layer.feature.properties.description + '<a href="https://instagram.com/explore/tags/ElbaGravity_' + e.layer.feature.properties.name.replace(/\s+/g, '') + '" target="_blank">| Instagram</a>');
+			$("#photo-gallery-click").html(e.layer.feature.properties.description + '<a href="https://instagram.com/explore/tags/ElbaGravity_' + e.layer.feature.properties.name.replace(/\s+/g, '') + '" target="_blank">| Instagram</a>');
 			// These elements are coded into the KMLs!
 			$("#IT-Click").on('click', function() {
 				$(".EN").css("display", "none");

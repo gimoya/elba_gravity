@@ -60,23 +60,7 @@
 		margin-top: 5px;
 	}
 	
-	/* 
-	custom link styling:
-  
-	a {
-		transition: color .4s;
-	}
 
-	a:link, a:visited { 
-		color: #ccba38; 
-	}
-
-	a:hover   { color: #7FDBFF; }
-	a:active  {
-		transition: color .3s;
-		color: #007BE6;
-	}	
-	*/
 	
 	/*
 	exceptation for control links.. not working?
@@ -129,6 +113,10 @@
 	.EN {
 	  display: none;
 	}
+
+	/* 
+	custom link styling:
+	*/
 	
 	a, .Text-Click {
 	   cursor: hand; 
@@ -140,7 +128,8 @@
 	}
 
 	a:hover, .Text-Click:hover  { color: #7FDBFF; }
-	a:active, .Text-Click:active, .Text-Click:active   {
+	
+	a:active, .Text-Click:active  {
 		transition: color .3s;
 		color: #007BE6;
 	}	
@@ -165,9 +154,6 @@
 	Phot Gallery Stuff
 	*/
 	
-	#photo-slider-click {
-		cursor: hand; 
-	}
 	</style>
 </head> 		
 	
@@ -178,7 +164,7 @@
 		<div id="trail-container">
 			<div class="info-row" id="title"></div>
 			<div class="info-row" id="trail-info"></div>
-			<div id="photo-slider-click" onclick="alert('Poh')">Gallery</div>
+			<div class="Text-Click" id="photo-slider-click" onclick="alert('Poh')">Gallery</div>
 			<div class="info-row" id="tracks"><a id="gpx" href="" download>GPX</a> | <a id="kml" href="" download>KML</a></div>		
 		</div>
 		<div class="info-row" id="poi-info"></div>
@@ -266,7 +252,7 @@
 				.css('color', trailColors[e.layer.feature.properties.name])
 				.html(e.layer.feature.properties.name);
 			$("#trail-info").html(e.layer.feature.properties.description + '<a href="https://instagram.com/explore/tags/ElbaGravity_' + e.layer.feature.properties.name.replace(/\s+/g, '') + '" target="_blank">Check on Instagram</a>');
-			
+			// This elements are coded into the KMLs!
 			$("#IT-Click").on('click', function() {
 				$(".EN").css("display", "none");
 				$(".IT").css("display", "block");

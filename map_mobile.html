@@ -123,16 +123,16 @@
 		font-size: 1.5em;
 	}
 
-   .IT, .EN {
+   #IT, #EN {
 		max-height: 7em;
 		overflow-y: scroll;
 	}
 	
-   .IT {
+   #IT {
 	  display: block;
 	}
 
-	.EN {
+	#EN {
 	  display: none;
 	}
 
@@ -163,10 +163,13 @@
 		color: white;
 		font-family: Corbel;
 		float: right;
-		display: inline-block;
 		padding: 5px 10px;
 		background: #ccc;
 		cursor: hand;
+		position: absolute;
+		right: 0;
+		top:0;
+		
 	}
 	.close-btn:hover {
 		background: #aaa;
@@ -178,11 +181,10 @@
 	#gallery {
 		display: none;
 		z-index:9999;
-		max-width: 600px;
-		width: 70%;
-		max-heigth: 600px;
-		height: 70%;
-		overflow: hidden;
+		max-width: 400px;
+		width: fit-content;
+		max-height: 400px;
+		height: fit-content;
 		margin: auto;
 		position: absolute;
 		left: 0;
@@ -232,7 +234,7 @@
 		new L.Control.Zoom({ position: 'topright' }).addTo(map);
 
 		var toggle = L.easyButton({
-		  position: 'topleft',
+		  position: 'topright',
 		  states: [{
 			stateName: 'basemap-outdoor',
 			icon: '<span class="custom-control">T</span>',
@@ -299,12 +301,12 @@
 			// $("#instagram-link").html('<a href="https://instagram.com/explore/tags/ElbaGravity_' + e.layer.feature.properties.name.replace(/\s+/g, '') + '" target="_blank">Instagram</a>');				
 			// These elements are coded into the KMLs!
 			$("#IT-Click").on('click', function() {
-				$(".EN").css("display", "none");
-				$(".IT").css("display", "block");
+				$("#EN").css("display", "none");
+				$("#IT").css("display", "block");
 			});	
 			$("#EN-Click").on('click', function() {
-				$(".IT").css("display", "none");
-				$(".EN").css("display", "block");
+				$("#IT").css("display", "none");
+				$("#EN").css("display", "block");
 			});				
 			$("#tracks").css('display', 'block');
 			$("#infopanel-bottom").fadeIn("slow");			
@@ -402,7 +404,7 @@
 		var VignolaKML = omnivore.kml('KML/Vignola.kml')
 			.on('click', function(e) {
 				trailClick(e, "Bungee Inline");
-				$("#widget").html('<iframe src="//lightwidget.com/widgets/1b8944eef7c85a2c8552a30a8d1da7e8.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>');
+				$("#widget").html('<iframe src="//lightwidget.com/widgets/1b8944eef7c85a2c8552a30a8d1da7e8.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="height: 100%; height-max: 500px; border: 0; overflow: hidden;"></iframe>');
 				$("#gpx").prop('href', 'GPX/Vignola.gpx');
 				$("#kml").prop('href', 'KML/Vignola.kml');
 			});

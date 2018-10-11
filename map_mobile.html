@@ -538,7 +538,6 @@
 			.addTo(map);
 		*/	
 		
-		
 		// Iterate over groupKML and make end and start markers, then attach event listeners..	
 		groupKML.eachLayer(function (layer) {	
 
@@ -567,7 +566,9 @@
 						color: 'darkslategrey',
 						fillColor: 'pink',
 						fillOpacity: 1,
-						radius: 8
+						radius: 8,
+						zIndexOffset: 999,
+						riseOnHover: true
 					})
 					.bindTooltip(name + ' - End', {
 						permanent: false, 

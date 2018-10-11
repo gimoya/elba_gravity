@@ -188,7 +188,6 @@
 	<div id="photo-gallery"></div>
 	<div id="gallery">
 		<div class="close-btn" title="Click to close" onclick="$(this).parent().fadeOut('slow');">X</div>
-		<iframe src="//lightwidget.com/widgets/7cfa1a27909850c1a5eb5d022fef31c9.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
 	</div>
 	<div id="infopanel-bottom">
 		<div class="close" title="Click to close" onclick="$(this).parent().fadeOut('slow');">X</div>
@@ -376,6 +375,7 @@
 		var ScaletteKML = omnivore.kml('KML/Scalette.kml')
 			.on('click', function(e) {
 				trailClick(e, "Hanalei");
+				$("#gallery").html('<iframe src="//lightwidget.com/widgets/7920ebe9426c5b4aa4235de3f5eab748.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>');
 				$("#gpx").prop('href', 'GPX/Scalette.gpx');
 				$("#kml").prop('href', 'KML/Scalette.kml');
 			});
@@ -383,6 +383,7 @@
 		var VignolaKML = omnivore.kml('KML/Vignola.kml')
 			.on('click', function(e) {
 				trailClick(e, "Bungee Inline");
+				$("#gallery").html('<iframe src="//snapwidget.com/embed/541966" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>');
 				$("#gpx").prop('href', 'GPX/Vignola.gpx');
 				$("#kml").prop('href', 'KML/Vignola.kml');
 			});

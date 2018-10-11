@@ -473,6 +473,10 @@
 		]);
 
 		map.addLayer(groupKML);
+				
+		groupKML.eachLayer(function (layer) {			
+				layer.bringToFront();
+		});		
 		
 		// used icons for markers:
 		L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
@@ -554,27 +558,27 @@
 						color: 'darkslategrey',
 						fillColor: 'lightgreen',
 						fillOpacity: 1,					
-						radius: 8
+						radius: 8,					
 					})
 					.bindTooltip(name + ' - Start', {
 						permanent: false, 
 						direction: 'right'
 					})
-					.addTo(map);
+					.addTo(map)
+					.bringToFront();
 					
 				new L.circleMarker(latlngs[latlngs.length - 1], {
 						color: 'darkslategrey',
 						fillColor: 'pink',
 						fillOpacity: 1,
 						radius: 8,
-						zIndexOffset: 999,
-						riseOnHover: true
 					})
 					.bindTooltip(name + ' - End', {
 						permanent: false, 
 						direction: 'right'
 					})
-					.addTo(map);
+					.addTo(map)
+					.bringToFront();					
 			});			
 		});
 	</script>

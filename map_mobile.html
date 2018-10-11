@@ -281,14 +281,14 @@
 		
 		function trailClick(e, font) {
 			$("#poi-info").css('display', 'none');
-			// this will show #title and #tracks in #trail-container again, if its display was set to none after clicked #poi-info
-			$("#trail-container").css('display', 'block'); 		
+			// this will show #trail-container again, if its display was set to none after clicked #poi-info
+			$("#trail-container").css('display', 'block'); 	
+			// add instagram link to gallery btn
+			$("#photo-gallery-click").html('Gallery' + '<a href="https://instagram.com/explore/tags/ElbaGravity_' + ' | ' + e.layer.feature.properties.name.replace(/\s+/g, '') + '" target="_blank">Instagram</a>');			
 			$("#title").css('font-family', font)
 				.css('color', trailColors[e.layer.feature.properties.name])
 				.html(e.layer.feature.properties.name)
 			$("#trail-info").html(e.layer.feature.properties.description);
-			// add instagram link to gallery btn
-			$("#photo-gallery-click").html('Gallery | ' + '<a href="https://instagram.com/explore/tags/ElbaGravity_' + e.layer.feature.properties.name.replace(/\s+/g, '') + '" target="_blank">Instagram</a>');
 			// These elements are coded into the KMLs!
 			$("#IT-Click").on('click', function() {
 				$(".EN").css("display", "none");

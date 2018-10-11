@@ -80,17 +80,26 @@
 		color: #999;
 	}
 
-	
-	@media screen (max-width: 400px) {
-	
 	/* 
 	prevent infopanel from covering controls on top of page, if on small screen 
 	*/
 	
+	@media only screen and (max-width:400px) {
+	
 		#infopanel-bottom {		
-			max-height: 70%;
+			max-height: 75%;
 			overflow-y: scroll;
 		}
+		#title {
+			font-size: 2em;
+		}	
+		#poi-info {
+			font-size: 1.5em;
+		}
+		
+		#tracks {
+			font-size: 1.25em;
+		}		
 	}
 	
 	.info-row {

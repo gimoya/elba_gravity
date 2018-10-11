@@ -84,7 +84,7 @@
 	    color: darkslategrey;
 	}
 	    
-	#infopanel {		
+	#infopanel-bottom {		
 		position: absolute;
 		display: none;
 		width: 100%;
@@ -143,7 +143,7 @@
 		font-family: Corbel;
 		float: right;
 		display: inline-block;
-		padding: 0px 5px;
+		padding: 5px 10px;
 		background: #ccc;
 		cursor: hand;
 	}
@@ -151,11 +151,12 @@
 </head> 		
 	
 <body>
-	<div id="infopanel">
+	<div id="infopanel-bottom">
 		<div id="close" title="Click to close" onclick="$(this).parent().fadeOut('slow');">X</div>
 		<div id="trail-container">
 			<div class="info-row" id="title"></div>
 			<div class="info-row" id="trail-info"></div>
+			<div id="photo-slider" onclick="">Gallery</div>
 			<div class="info-row" id="tracks"><a id="gpx" href="" download>GPX</a> | <a id="kml" href="" download>KML</a></div>		
 		</div>
 		<div class="info-row" id="poi-info"></div>
@@ -252,7 +253,7 @@
 				$(".EN").css("display", "block");
 			});				
 			$("#tracks").css('display', 'block');
-			$("#infopanel").fadeIn("slow");			
+			$("#infopanel-bottom").fadeIn("slow");			
 			map.fitBounds(e.layer.getBounds());
 		}
 
@@ -407,7 +408,7 @@
 			$("#poi-info").css('display', 'block');
 			// this will hide #title and #tracks in #trail-container, which otherwise would always stick above #poi-info		
 			$("#trail-container").css('display','none');
-			$("#infopanel").fadeIn("slow");
+			$("#infopanel-bottom").fadeIn("slow");
 			// console.log(latLngToLayerPoint(e.latlng));
 		}
 		
@@ -435,7 +436,6 @@
 				.addTo(map);
 		}
 		
-
 		// Bike Rent marker and functionally disabled, October 2018..
 		/* 		
 		var bikeRentIcon = L.AwesomeMarkers.icon({
@@ -449,14 +449,16 @@
 			$("#poi-info").css('display', 'block');
 			// this will hide #title and #tracks in #trail-container, which otherwise would always stick above #poi-info	
 			$("#trail-container").css('display','none');
-			$("#infopanel").fadeIn("slow");
+			$("#infopanel-bottom").fadeIn("slow");
 			// console.log(latLngToLayerPoint(e.latlng));			
 		}
 
 		new L.marker([42.81376, 10.3989717], {icon: bikeRentIcon})
 			.on('click', openShopURL)
 			.addTo(map);
-		*/		
+		*/	
+		
+		
 		// Iterate over groupKML and make end and start markers, then attach event listeners..	
 		groupKML.eachLayer(function (layer) {	
 

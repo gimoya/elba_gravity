@@ -62,7 +62,7 @@
 	
 	/* 
 	custom link styling:
-	*/  
+  
 	a {
 		transition: color .4s;
 	}
@@ -76,6 +76,7 @@
 		transition: color .3s;
 		color: #007BE6;
 	}	
+	*/
 	
 	/*
 	exceptation for control links.. not working?
@@ -128,12 +129,21 @@
 	.EN {
 	  display: none;
 	}
-
-	.IT-Click,
-	.EN-Click {
+	
+	a, .IT-Click, .EN-Click {
 	   cursor: hand; 
-	   color: #f9ff00;
+	   transition: color .4s;
 	}
+	
+	a, .IT-Click:link, .IT-Click:visited { 
+		color: #ccba38; 
+	}
+
+	a.hover, .IT-Click:hover, .EN-Click:hover  { color: #7FDBFF; }
+	a.:active, .IT-Click:acative, .EN-Click:active   {
+		transition: color .3s;
+		color: #007BE6;
+	}	
 	
 	/* 
 	CSS for inline close element which will hide it's parent div if clicked..
@@ -147,6 +157,13 @@
 		background: #ccc;
 		cursor: hand;
 	}
+	#close:hover {
+		background: #aaa;
+	}
+	#photo-slider-link {
+		cursor: hand; 
+	    color: #f9ff00;
+	}
 	</style>
 </head> 		
 	
@@ -156,7 +173,7 @@
 		<div id="trail-container">
 			<div class="info-row" id="title"></div>
 			<div class="info-row" id="trail-info"></div>
-			<div id="photo-slider" onclick="">Gallery</div>
+			<div id="photo-slider-link" onclick="">Gallery</div>
 			<div class="info-row" id="tracks"><a id="gpx" href="" download>GPX</a> | <a id="kml" href="" download>KML</a></div>		
 		</div>
 		<div class="info-row" id="poi-info"></div>

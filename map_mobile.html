@@ -194,6 +194,16 @@
 		background: rgba(10,10,10,0.8);
 	}
 	
+	/* 
+	prevent Gallery container overlapping controls on the sides, when display is
+	narrower than 480px. Max width of container is 400px, so at 500, this is 75%,
+	everything on a screen narrower than that will be set 75% by this rule
+	*/
+	@media only screen and (max-width:500px) {
+		#gallery {
+			max-width: 75%;
+		}
+	}
 	</style>
 </head> 		
 	

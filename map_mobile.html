@@ -160,7 +160,12 @@
 	#close:hover {
 		background: #aaa;
 	}
-	#photo-slider-link {
+	
+	/*
+	Phot Gallery Stuff
+	*/
+	
+	#photo-slider-click {
 		cursor: hand; 
 	    color: #f9ff00;
 	}
@@ -168,12 +173,13 @@
 </head> 		
 	
 <body>
+	<div id="photo-gallery"></div>
 	<div id="infopanel-bottom">
 		<div id="close" title="Click to close" onclick="$(this).parent().fadeOut('slow');">X</div>
 		<div id="trail-container">
 			<div class="info-row" id="title"></div>
 			<div class="info-row" id="trail-info"></div>
-			<div id="photo-slider-link" onclick="">Gallery</div>
+			<div id="photo-slider-click" onclick="alert('Poh')">Gallery</div>
 			<div class="info-row" id="tracks"><a id="gpx" href="" download>GPX</a> | <a id="kml" href="" download>KML</a></div>		
 		</div>
 		<div class="info-row" id="poi-info"></div>

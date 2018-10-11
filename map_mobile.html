@@ -20,10 +20,11 @@
 	<script src="//unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
 	
-	<!-- Locate Control -->
+	<!-- Disables due to non-https site at the moment.. only works with save origin..-->
+	<!-- Locate Control
 	<link rel="stylesheet" href="Styles/L.Control.Locate.min.css" />
 	<script src="Scripts/L.Control.Locate.min.js" charset="utf-8"></script>
-	<!-- Locate Control -->
+	Locate Control -->
 	
 	<!-- GOOGLE FONTS -->	
 	<link href='//fonts.googleapis.com/css?family=Bangers|Fugaz+One|Hanalei|Ranga|Ultra|Exo:Bold|Fredoka+One|Sigmar+One|Bungee+Inline|Creepster|Ewert|Fruktur|Monoton|Rubik:900' rel='stylesheet' type='text/css'>	
@@ -242,6 +243,17 @@
 		
 		new L.control.attribution({position: 'bottomright'}).addTo(map);
 		new L.Control.Zoom({ position: 'topright' }).addTo(map);
+		
+		/* 
+		Control disabled due to http protocol at the moment.. only https allowed
+		
+		L.control.locate({
+			strings: {
+				title: "Show me where I am, yo!"
+			}
+
+		}).addTo(map);		
+		*/
 
 		var toggle = L.easyButton({
 		  position: 'topright',
@@ -267,13 +279,6 @@
 		});	
 
 		toggle.addTo(map);
-
-		L.control.locate({
-			strings: {
-				title: "Show me where I am, yo!"
-			}
-
-		}).addTo(map);
 
 		var mapbox_Attr = 'Tiles &copy; <a href="https://www.mapbox.com">mapbox</a> | Design &copy; <a href="//tiroltrailhead.com/guiding">Tirol Trailhead</a>';  
 		var mapbox_satelliteUrl = 'https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2ltb3lhIiwiYSI6IkZrTld6NmcifQ.eY6Ymt2kVLvPQ6A2Dt9zAQ';
